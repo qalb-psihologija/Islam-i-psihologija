@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qalb — Islamska psihologija · Kako prepoznati narcisa</title>
+<meta name="description" content="Stručan i dostojanstven vodič kroz prepoznavanje narcizma kroz prizmu islamske psihologije — kibr, ujb, marad al-qalb, Kur'an, Sunnet i praktična samoodbrana.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --bone:#F5F1E9;
+  --bone-2:#FBF9F4;
+  --paper:#FFFFFF;
+  --ink:#161411;
+  --ink-soft:#4a443b;
+  --muted:#6f685c;
+  --line:#E3DCCF;
+  --line-strong:#D3CAB8;
+  --night:#0E1A17;
+  --night-2:#132420;
+  --night-3:#0b1613;
+  --emerald:#176B52;
+  --emerald-deep:#0E4A38;
+  --gold:#B98E3F;
+  --gold-soft:#C9A25B;
+  --clay:#A24B2C;
+  --sage:#7C9084;
+  --shadow-s:0 2px 10px rgba(20,18,15,.05);
+  --shadow-m:0 14px 40px -18px rgba(20,18,15,.28);
+  --shadow-l:0 40px 90px -30px rgba(14,26,23,.5);
+  --r-s:10px;
+  --r-m:18px;
+  --r-l:28px;
+  --maxw:1220px;
+  --font-d:'Fraunces',Georgia,serif;
+  --font-b:'Manrope',system-ui,sans-serif;
+  --font-a:'Amiri',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:88px;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font-b);
+  background:var(--bone);
+  color:var(--ink);
+  line-height:1.65;
+  font-size:clamp(15px,.4vw + 14px,16.5px);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+::selection{background:var(--gold);color:var(--night-3)}
+
+/* ============ AMBIENT / OVERLAYS ============ */
+.grain{
+  position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:.045;
+  mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--gold),var(--emerald));z-index:10000;transition:width .1s linear}
+
+/* ============ LAYOUT ============ */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,48px)}
+.section{padding:clamp(72px,10vw,140px) 0;position:relative}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.7em;
+  font-family:var(--font-b);font-weight:700;font-size:.72rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--emerald);
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--gold)}
+.eyebrow.on-dark{color:var(--gold-soft)}
+.h-xl{font-family:var(--font-d);font-weight:600;line-height:1.02;letter-spacing:-.02em;
+  font-size:clamp(2.4rem,6.5vw,5rem);font-optical-sizing:auto}
+.h-lg{font-family:var(--font-d);font-weight:600;line-height:1.06;letter-spacing:-.015em;
+  font-size:clamp(1.9rem,4.4vw,3.1rem)}
+.h-md{font-family:var(--font-d);font-weight:600;line-height:1.15;letter-spacing:-.01em;
+  font-size:clamp(1.35rem,2.6vw,1.9rem)}
+.lede{font-size:clamp(1.05rem,1.6vw,1.28rem);color:var(--ink-soft);max-width:52ch;line-height:1.7}
+.serif-i{font-family:var(--font-a);font-style:italic;color:var(--emerald);font-size:1.08em}
+.on-dark{color:#EFEAE0}
+.on-dark .lede{color:#C7C0B2}
+.on-dark .h-xl,.on-dark .h-lg,.on-dark .h-md{color:#F4F0E7}
+.muted{color:var(--muted)}
+
+/* ============ NAV ============ */
+.nav{
+  position:sticky;top:0;z-index:9000;
+  background:rgba(245,241,233,.72);
+  backdrop-filter:blur(14px) saturate(1.4);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s,background .3s,box-shadow .3s;
+}
+.nav.scrolled{border-color:var(--line);box-shadow:var(--shadow-s);background:rgba(251,249,244,.86)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{display:flex;align-items:center;gap:.7rem;font-family:var(--font-d);font-weight:700;font-size:1.28rem;letter-spacing:-.01em}
+.brand .mark{width:38px;height:38px;flex:0 0 auto;display:grid;place-items:center;background:var(--night);color:var(--gold-soft);border-radius:9px}
+.brand .mark svg{width:22px;height:22px}
+.brand small{display:block;font-family:var(--font-b);font-weight:600;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.nav-links{display:flex;align-items:center;gap:clamp(10px,1.6vw,26px)}
+.nav-links a{font-weight:600;font-size:.9rem;color:var(--ink-soft);position:relative;padding:6px 0;transition:color .25s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--emerald);transition:width .3s}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{display:flex;align-items:center;gap:10px}
+.btn{
+  display:inline-flex;align-items:center;gap:.6em;font-weight:700;font-size:.92rem;
+  padding:12px 22px;border-radius:999px;transition:transform .25s,box-shadow .25s,background .25s,color .25s;
+  will-change:transform;
+}
+.btn svg{width:16px;height:16px}
+.btn-primary{background:var(--emerald);color:#F4F0E7;box-shadow:0 10px 26px -12px rgba(23,107,82,.7)}
+.btn-primary:hover{background:var(--emerald-deep);transform:translateY(-2px);box-shadow:0 16px 34px -12px rgba(23,107,82,.8)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line-strong)}
+.btn-ghost:hover{background:var(--paper);transform:translateY(-2px)}
+.btn-gold{background:var(--gold);color:var(--night-3)}
+.btn-gold:hover{background:var(--gold-soft);transform:translateY(-2px)}
+.btn .arrow{transition:transform .3s}
+.btn:hover .arrow{transform:translateX(4px)}
+.burger{display:none;width:44px;height:44px;flex-direction:column;justify-content:center;gap:5px;align-items:center;border-radius:10px}
+.burger span{width:22px;height:2px;background:var(--ink);transition:.3s}
+@media(max-width:940px){
+  .nav-links,.nav-cta .btn-ghost{display:none}
+  .burger{display:flex}
+  .nav.open .nav-links{
+    display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;
+    background:var(--bone-2);padding:20px clamp(18px,5vw,48px);gap:6px;border-bottom:1px solid var(--line);
+    box-shadow:var(--shadow-m);
+  }
+  .nav.open .nav-links a{padding:12px 0;border-bottom:1px solid var(--line);width:100%}
+  .nav.open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav.open .burger span:nth-child(2){opacity:0}
+  .nav.open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+
+/* ============ HERO ============ */
+.hero{position:relative;padding:clamp(48px,7vw,92px) 0 clamp(60px,8vw,110px);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,64px);align-items:center}
+.hero h1{font-family:var(--font-d);font-weight:500;font-size:clamp(2.7rem,7.4vw,5.4rem);line-height:.98;letter-spacing:-.03em;margin:22px 0 24px}
+.hero h1 em{font-style:italic;color:var(--emerald);position:relative;white-space:nowrap}
+.hero h1 em::after{content:"";position:absolute;left:0;bottom:.05em;width:100%;height:4px;background:var(--gold);border-radius:2px;opacity:.7}
+.hero .lede{margin-bottom:34px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:40px}
+.hero-stats{display:flex;gap:clamp(20px,4vw,46px);flex-wrap:wrap;border-top:1px solid var(--line);padding-top:26px}
+.hero-stats .n{font-family:var(--font-d);font-size:1.9rem;font-weight:600;color:var(--ink);line-height:1}
+.hero-stats .l{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+.hero-media{position:relative}
+.hero-media .frame{
+  aspect-ratio:4/5;border-radius:var(--r-l);overflow:hidden;position:relative;box-shadow:var(--shadow-l);
+  border:1px solid var(--line);
+}
+.kb{overflow:hidden}
+.kb img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);animation:kb 26s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1.06) translate(0,0)}to{transform:scale(1.16) translate(-2%,-3%)}}
+.hero-media .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(14,26,23,.55))}
+.hero-tag{
+  position:absolute;left:-14px;bottom:26px;background:var(--paper);border:1px solid var(--line);
+  padding:14px 18px;border-radius:var(--r-m);box-shadow:var(--shadow-m);max-width:230px;
+  animation:floaty 7s ease-in-out infinite;
+}
+.hero-tag .t{font-family:var(--font-a);font-size:1.05rem;color:var(--emerald);display:block;margin-bottom:4px}
+.hero-tag .s{font-size:.82rem;color:var(--ink-soft)}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.hero-arab{
+  position:absolute;top:-8px;right:-6px;font-family:var(--font-a);font-size:clamp(2.6rem,6vw,4rem);
+  color:rgba(185,142,63,.18);line-height:1;pointer-events:none;z-index:1;
+}
+@media(max-width:820px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-media{order:-1;max-width:460px}
+  .hero-tag{left:auto;right:8px}
+}
+
+/* ============ MARQUEE ============ */
+.marq{background:var(--night);color:#D9D2C4;overflow:hidden;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 0}
+.marq-track{display:flex;gap:44px;white-space:nowrap;animation:marq 38s linear infinite;width:max-content}
+.marq-track span{font-family:var(--font-d);font-size:1.05rem;letter-spacing:.01em;display:inline-flex;align-items:center;gap:14px}
+.marq-track span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold)}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ============ CONCEPT (sticky) ============ */
+.concept-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,70px);align-items:start}
+.concept-sticky{position:sticky;top:100px}
+.concept-sticky .card{background:var(--night);color:#EFE9DC;border-radius:var(--r-l);padding:34px;position:relative;overflow:hidden;box-shadow:var(--shadow-l)}
+.concept-sticky .card::before{content:"ﻫ";position:absolute;right:-30px;bottom:-70px;font-family:var(--font-a);font-size:20rem;color:rgba(201,162,91,.06);line-height:1}
+.concept-sticky .card h3{font-family:var(--font-d);font-size:1.5rem;margin-bottom:12px}
+.concept-sticky .card p{color:#C9C2B4;font-size:.98rem}
+.concept-sticky .card .bism{font-family:var(--font-a);font-size:1.6rem;color:var(--gold-soft);display:block;margin-bottom:18px}
+.flow{display:flex;flex-direction:column;gap:14px}
+.flow-item{
+  display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;
+  padding:22px 24px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-m);
+  transition:transform .3s,border-color .3s,box-shadow .3s;position:relative;
+}
+.flow-item:hover{transform:translateX(6px);border-color:var(--emerald);box-shadow:var(--shadow-s)}
+.flow-item .num{font-family:var(--font-d);font-size:1.4rem;color:var(--gold);font-weight:600;width:44px}
+.flow-item h4{font-weight:700;font-size:1.05rem;margin-bottom:3px}
+.flow-item p{font-size:.9rem;color:var(--muted)}
+.flow-item .ar{font-family:var(--font-a);font-size:1.1rem;color:var(--emerald);margin-left:auto;writing-mode:horizontal-ta}
+@media(max-width:820px){.concept-grid{grid-template-columns:1fr}.concept-sticky{position:static}}
+
+/* ============ DISEASE (bento) ============ */
+.disease-head{max-width:640px;margin-bottom:14px}
+.disease-head p{margin-top:18px}
+.disease-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:36px}
+.tile{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-m);padding:26px;position:relative;overflow:hidden;transition:transform .35s,box-shadow .35s,border-color .35s}
+.tile:hover{transform:translateY(-5px);box-shadow:var(--shadow-m);border-color:var(--line-strong)}
+.tile .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--night);color:var(--gold-soft);margin-bottom:16px}
+.tile .ic svg{width:22px;height:22px}
+.tile .ar{font-family:var(--font-a);font-size:1.5rem;color:var(--emerald);display:block;margin-bottom:6px}
+.tile h4{font-family:var(--font-d);font-size:1.28rem;font-weight:600;margin-bottom:8px}
+.tile p{font-size:.92rem;color:var(--ink-soft)}
+.tile.big{grid-column:span 3;grid-row:span 2;background:var(--night);color:#EFE9DC;border-color:rgba(255,255,255,.06)}
+.tile.big p{color:#C7C0B2}
+.tile.big .ar{color:var(--gold-soft)}
+.tile.big .ic{background:rgba(201,162,91,.14);color:var(--gold-soft)}
+.tile.mid{grid-column:span 3}
+.tile.sm{grid-column:span 3}
+.tile.big{padding:34px}
+.tile.big h4{font-size:1.8rem}
+.tile.big .gloss{display:block;font-size:.82rem;color:var(--gold-soft);margin-bottom:14px;font-style:italic}
+@media(max-width:900px){
+  .disease-grid{grid-template-columns:repeat(2,1fr)}
+  .tile.big,.tile.mid,.tile.sm{grid-column:span 2;grid-row:auto}
+  .tile.big{grid-row:auto}
+}
+@media(max-width:560px){.disease-grid{grid-template-columns:1fr}.tile.big,.tile.mid,.tile.sm{grid-column:span 1}}
+
+/* ============ SIGNS (sticky two-col) ============ */
+#znaci{background:var(--bone-2)}
+.signs-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(30px,5vw,72px);align-items:start;margin-top:40px}
+.signs-left{position:sticky;top:100px}
+.signs-left .note{margin-top:26px;padding:20px 22px;background:var(--paper);border-left:3px solid var(--gold);border-radius:0 var(--r-s) var(--r-s) 0;font-size:.92rem;color:var(--ink-soft);box-shadow:var(--shadow-s)}
+.signs-left .note b{color:var(--ink)}
+.context-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.context-tabs button{
+  padding:10px 18px;border-radius:999px;font-weight:600;font-size:.9rem;
+  border:1px solid var(--line-strong);color:var(--ink-soft);transition:.25s;
+}
+.context-tabs button.active{background:var(--emerald);color:#F4F0E7;border-color:var(--emerald)}
+.context-tabs button:hover:not(.active){background:var(--paper)}
+.signs-panel{display:none}
+.signs-panel.active{display:block;animation:fade .5s ease}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.sign{
+  display:grid;grid-template-columns:auto 1fr;gap:16px;padding:22px 0;border-bottom:1px solid var(--line);
+  align-items:start;
+}
+.sign:last-child{border-bottom:none}
+.sign .dot{width:34px;height:34px;border-radius:10px;background:var(--bone);border:1px solid var(--line);display:grid;place-items:center;font-family:var(--font-d);font-weight:600;color:var(--emerald);flex:0 0 auto}
+.sign h4{font-weight:700;font-size:1.06rem;margin-bottom:5px}
+.sign p{font-size:.93rem;color:var(--ink-soft)}
+.sign .warn{display:inline-block;margin-top:8px;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--clay);background:rgba(162,75,44,.1);padding:4px 10px;border-radius:999px}
+@media(max-width:820px){.signs-grid{grid-template-columns:1fr}.signs-left{position:static}}
+
+/* ============ QURAN (dark) ============ */
+#quran{background:var(--night);color:#EFE9DC;position:relative;overflow:hidden}
+#quran::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(600px 400px at 82% 8%,rgba(201,162,91,.12),transparent 60%),
+  radial-gradient(700px 500px at 5% 95%,rgba(23,107,82,.28),transparent 60%)}
+#quran .wrap{position:relative}
+#quran .h-lg{color:#F4F0E7}
+#quran .intro{max-width:620px;margin:22px 0 46px;color:#C7C0B2;font-size:1.08rem}
+.ayah{
+  position:relative;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.015));
+  border:1px solid rgba(255,255,255,.08);border-radius:var(--r-m);padding:32px;margin-bottom:20px;
+  transition:border-color .35s,transform .35s,background .35s;overflow:hidden;
+}
+.ayah::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(var(--gold),var(--emerald))}
+.ayah:hover{border-color:rgba(201,162,91,.4);transform:translateX(4px)}
+.ayah .ar{font-family:var(--font-a);font-size:clamp(1.5rem,3vw,2rem);line-height:2;color:#F3ECDD;text-align:right;margin-bottom:20px;padding-right:8px}
+.ayah .ref{display:inline-flex;align-items:center;gap:8px;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-soft);background:rgba(201,162,91,.1);padding:6px 12px;border-radius:999px;margin-bottom:14px}
+.ayah .tr{font-size:1.02rem;color:#DAD3C4;margin-bottom:16px;line-height:1.7}
+.ayah .tafsir{font-size:.95rem;color:#B7B0A1;border-top:1px solid rgba(255,255,255,.08);padding-top:16px;line-height:1.75}
+.ayah .tafsir b{color:#EFE9DC;font-weight:700}
+.ayah .tag{position:absolute;top:26px;right:26px;font-family:var(--font-a);font-size:1.1rem;color:rgba(201,162,91,.55)}
+
+/* ============ SELF-DEFENSE (bento + steps) ============ */
+.def-head{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end;margin-bottom:44px}
+.def-head .lede{margin-top:20px}
+.def-bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(120px,auto);gap:16px}
+.def-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-m);padding:26px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .35s,box-shadow .35s}
+.def-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-m)}
+.def-card .k{font-family:var(--font-d);font-size:2.4rem;color:var(--gold);font-weight:600;line-height:1}
+.def-card h4{font-family:var(--font-d);font-size:1.3rem;font-weight:600;margin:16px 0 8px}
+.def-card p{font-size:.9rem;color:var(--ink-soft)}
+.def-card.feature{grid-column:span 2;grid-row:span 2;background:var(--night);color:#EFE9DC;border-color:rgba(255,255,255,.06);padding:34px}
+.def-card.feature h4{color:#F4F0E7;font-size:1.7rem}
+.def-card.feature p{color:#C7C0B2}
+.def-card.feature .k{color:var(--gold-soft)}
+.def-card.feature .duaa{font-family:var(--font-a);font-size:1.4rem;color:var(--gold-soft);margin-top:22px;line-height:2}
+.def-card.wide{grid-column:span 2}
+.steps{margin-top:56px}
+.steps ol{list-style:none;counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:34px;position:relative}
+.steps ol::before{content:"";position:absolute;top:26px;left:12.5%;right:12.5%;height:2px;background:var(--line);z-index:0}
+.step{counter-increment:s;position:relative;z-index:1;padding:0 12px;text-align:center}
+.step .n{width:54px;height:54px;margin:0 auto 16px;border-radius:50%;background:var(--bone);border:2px solid var(--gold);display:grid;place-items:center;font-family:var(--font-d);font-weight:700;font-size:1.2rem;color:var(--emerald)}
+.step .n::before{content:counter(s)}
+.step h5{font-weight:700;font-size:1rem;margin-bottom:6px}
+.step p{font-size:.85rem;color:var(--muted)}
+@media(max-width:900px){
+  .def-bento{grid-template-columns:repeat(2,1fr)}
+  .def-card.feature{grid-column:span 2;grid-row:span 1}
+  .steps ol{grid-template-columns:1fr 1fr;gap:24px}.steps ol::before{display:none}
+  .def-head{grid-template-columns:1fr}
+}
+@media(max-width:520px){.def-bento{grid-template-columns:1fr}.def-card,.def-card.wide,.def-card.feature{grid-column:span 1}.steps ol{grid-template-columns:1fr}}
+
+/* ============ FORUM ============ */
+#forum{background:var(--bone-2)}
+.forum-top{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start;margin-bottom:40px}
+.forum-top .lede{margin-top:18px}
+.privacy-box{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-m);padding:28px;box-shadow:var(--shadow-s)}
+.privacy-box .ic{width:46px;height:46px;border-radius:12px;background:var(--night);color:var(--gold-soft);display:grid;place-items:center;margin-bottom:16px}
+.privacy-box h4{font-family:var(--font-d);font-size:1.25rem;margin-bottom:8px}
+.privacy-box p{font-size:.92rem;color:var(--ink-soft)}
+.flow-demo{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:20px}
+.flow-chip{display:inline-flex;align-items:center;gap:7px;font-size:.82rem;font-weight:600;padding:8px 14px;border-radius:999px;background:var(--bone);border:1px solid var(--line)}
+.flow-chip .d{width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.flow-chip.active{background:var(--emerald);color:#F4F0E7;border-color:var(--emerald)}
+.flow-chip.active .d{background:var(--gold)}
+.flow-arr{color:var(--muted);font-weight:700}
+.cat-chips{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0}
+.cat-chip{font-size:.88rem;font-weight:600;padding:9px 16px;border-radius:999px;border:1px solid var(--line-strong);transition:.25s;cursor:default}
+.cat-chip:hover{background:var(--paper)}
+.cat-chip b{color:var(--emerald)}
+.kucni{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-l);padding:clamp(24px,4vw,44px);box-shadow:var(--shadow-s)}
+.kucni h3{font-family:var(--font-d);font-size:1.6rem;margin-bottom:6px}
+.kucni .sub{color:var(--muted);font-size:.9rem;margin-bottom:26px}
+.kucni ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:14px 34px}
+.kucni li{display:flex;gap:12px;font-size:.95rem;color:var(--ink-soft)}
+.kucni li svg{width:20px;height:20px;color:var(--emerald);flex:0 0 auto;margin-top:3px}
+@media(max-width:820px){.forum-top{grid-template-columns:1fr}.kucni ul{grid-template-columns:1fr}}
+
+/* ============ MODERATION ============ */
+#moderacija{background:var(--night);color:#EFE9DC;position:relative;overflow:hidden}
+#moderacija::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 400px at 90% 0,rgba(23,107,82,.25),transparent 60%)}
+#moderacija .wrap{position:relative}
+#moderacija .h-lg{color:#F4F0E7}
+#moderacija .intro{max-width:640px;margin:22px 0 40px;color:#C7C0B2;font-size:1.06rem}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;border-radius:999px}
+.pill .d{width:8px;height:8px;border-radius:50%}
+.pill.pending{background:rgba(201,162,91,.14);color:var(--gold-soft)}.pill.pending .d{background:var(--gold)}
+.pill.published{background:rgba(23,107,82,.22);color:#7fd6b8}.pill.published .d{background:#3fbf93}
+.pill.rejected{background:rgba(162,75,44,.2);color:#e6a288}.pill.rejected .d{background:var(--clay)}
+.pill.anon{background:rgba(255,255,255,.06);color:#B7B0A1}.pill.anon .d{background:#B7B0A1}
+.moder-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.moder-col{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:var(--r-l);padding:28px}
+.moder-col h3{font-family:var(--font-d);font-size:1.35rem;margin-bottom:6px;display:flex;align-items:center;gap:12px}
+.moder-col .hint{font-size:.85rem;color:#B7B0A1;margin-bottom:22px}
+/* form */
+.field{margin-bottom:18px}
+.field label{display:block;font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#B7B0A1;margin-bottom:8px}
+.field input,.field select,.field textarea{
+  width:100%;background:var(--night-3);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-s);
+  padding:13px 15px;color:#EFE9DC;font-family:inherit;font-size:.95rem;transition:border-color .25s,box-shadow .25s;
+}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,91,.18)}
+.field textarea{min-height:120px;resize:vertical;line-height:1.6}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23B98E3F' stroke-width='2'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px}
+.check{display:flex;align-items:flex-start;gap:11px;margin:6px 0 20px;font-size:.92rem;color:#C7C0B2;cursor:pointer;line-height:1.5}
+.check input{width:18px;height:18px;margin-top:2px;accent-color:var(--emerald);flex:0 0 auto}
+.form-foot{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.form-msg{font-size:.85rem;font-weight:600}
+.form-msg.ok{color:#7fd6b8}.form-msg.err{color:#e6a288}
+/* queue / thread */
+.queue{display:flex;flex-direction:column;gap:14px}
+.thread{background:var(--night-3);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-m);padding:22px;transition:transform .3s,border-color .3s}
+.thread:hover{border-color:rgba(201,162,91,.3)}
+.thread .top{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.thread .cat{font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--gold-soft);background:rgba(201,162,91,.12);padding:5px 11px;border-radius:999px}
+.thread .meta{font-size:.78rem;color:#8f887b;margin-left:auto}
+.thread h4{font-family:var(--font-d);font-size:1.18rem;margin-bottom:10px;color:#F4F0E7}
+.thread .body{font-size:.92rem;color:#C7C0B2;line-height:1.7;margin-bottom:16px;white-space:pre-wrap}
+.thread .actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.act{font-size:.82rem;font-weight:700;padding:9px 15px;border-radius:999px;transition:.25s;border:1px solid transparent}
+.act.app{background:var(--emerald);color:#F4F0E7}.act.app:hover{background:var(--emerald-deep)}
+.act.rej{background:transparent;color:#e6a288;border-color:rgba(162,75,44,.4)}.act.rej:hover{background:rgba(162,75,44,.14)}
+.act.und{background:transparent;color:#B7B0A1;border-color:rgba(255,255,255,.15)}.act.und:hover{background:rgba(255,255,255,.06)}
+.act.del{background:transparent;color:#e6a288}.act.del:hover{color:#ff8f66}
+.thread.flash{animation:flash 1s ease}
+@keyframes flash{0%{background:rgba(201,162,91,.18)}100%{background:var(--night-3)}}
+/* public board */
+.board{margin-top:34px}
+.board h3{font-family:var(--font-d);font-size:1.3rem;margin-bottom:18px;display:flex;align-items:center;gap:12px}
+.board-empty{color:#8f887b;font-size:.9rem;padding:20px;text-align:center;border:1px dashed rgba(255,255,255,.14);border-radius:var(--r-m)}
+.admin-login{margin-top:20px;padding:22px;border:1px solid rgba(201,162,91,.3);border-radius:var(--r-m);background:rgba(201,162,91,.05)}
+.admin-login .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.admin-login input{background:var(--night-3);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-s);padding:11px 14px;color:#EFE9DC;font-size:.92rem;min-width:160px}
+.admin-login input:focus{outline:none;border-color:var(--gold)}
+.admin-login .hint{font-size:.78rem;color:#8f887b;margin-top:10px}
+@media(max-width:820px){.moder-grid{grid-template-columns:1fr}}
+
+/* ============ QUOTE ============ */
+.quote{position:relative;overflow:hidden;padding:clamp(60px,9vw,120px) 0}
+.quote .bg{position:absolute;inset:0}
+.quote .bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.5) saturate(.9)}
+.quote .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,26,23,.92),rgba(14,26,23,.55))}
+.quote .wrap{position:relative}
+.quote blockquote{font-family:var(--font-d);font-size:clamp(1.6rem,3.6vw,2.9rem);line-height:1.2;font-weight:500;max-width:22ch;color:#F4F0E7}
+.quote .src{margin-top:26px;font-family:var(--font-a);font-size:1.3rem;color:var(--gold-soft)}
+.quote .src span{display:block;font-family:var(--font-b);font-size:.85rem;color:#C7C0B2;margin-top:6px;letter-spacing:.04em}
+
+/* ============ FAQ ============ */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:44px;align-items:start}
+.faq-list{display:flex;flex-direction:column}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;font-family:var(--font-d);font-size:1.12rem;font-weight:600;transition:color .25s}
+.faq-q:hover{color:var(--emerald)}
+.faq-q .pm{width:30px;height:30px;flex:0 0 auto;border:1px solid var(--line-strong);border-radius:50%;display:grid;place-items:center;position:relative;transition:.3s}
+.faq-q .pm::before,.faq-q .pm::after{content:"";position:absolute;background:var(--ink);border-radius:2px;transition:.3s}
+.faq-q .pm::before{width:12px;height:2px}
+.faq-q .pm::after{width:2px;height:12px}
+.faq-item.open .pm{background:var(--emerald);border-color:var(--emerald);transform:rotate(90deg)}
+.faq-item.open .pm::before,.faq-item.open .pm::after{background:#F4F0E7}
+.faq-item.open .pm::after{height:0}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s ease}
+.faq-a p{padding:0 0 24px;color:var(--ink-soft);font-size:.96rem;max-width:60ch}
+@media(max-width:820px){.faq-grid{grid-template-columns:1fr}}
+
+/* ============ FOOTER ============ */
+.foot{background:var(--night-3);color:#C7C0B2;padding:clamp(56px,7vw,90px) 0 34px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot .brand{color:#F4F0E7;margin-bottom:16px}
+.foot .brand .mark{background:rgba(201,162,91,.14)}
+.foot h5{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-soft);font-weight:700;margin-bottom:16px}
+.foot a{display:block;font-size:.92rem;padding:6px 0;transition:color .25s}
+.foot a:hover{color:#F4F0E7}
+.foot .dis{font-size:.86rem;line-height:1.7;max-width:34ch}
+.foot-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:28px;font-size:.82rem;color:#8f887b}
+.foot .arab{font-family:var(--font-a);color:var(--gold-soft);font-size:1.15rem}
+@media(max-width:820px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.foot-grid{grid-template-columns:1fr}}
+
+/* ============ TOAST ============ */
+.toast-wrap{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:10000;display:flex;flex-direction:column;gap:10px;align-items:center;width:min(92vw,440px)}
+.toast{background:var(--night);color:#EFE9DC;padding:14px 20px;border-radius:var(--r-m);box-shadow:var(--shadow-l);font-size:.9rem;font-weight:600;display:flex;align-items:center;gap:12px;width:100%;animation:toastIn .4s ease;border-left:3px solid var(--gold)}
+.toast.ok{border-left-color:#3fbf93}
+.toast.warn{border-left-color:var(--clay)}
+.toast svg{width:20px;height:20px;flex:0 0 auto}
+@keyframes toastIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+/* ============ REVEAL ============ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal[data-d="1"]{transition-delay:.08s}
+.reveal[data-d="2"]{transition-delay:.16s}
+.reveal[data-d="3"]{transition-delay:.24s}
+.reveal[data-d="4"]{transition-delay:.32s}
+
+/* ============ RESPONSIVE HEADINGS ============ */
+@media(max-width:560px){.hero-stats{gap:20px}.hero-stats .n{font-size:1.5rem}}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#pocetna">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2C8.5 5 7 8 7 11a5 5 0 0010 0c0-3-1.5-6-5-9z"/><path d="M12 22v-5M9 19h6" stroke-width="1.2"/></svg>
+      </span>
+      <span>Qalb<small>Islamska psihologija</small></span>
+    </a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#psihologija">O psihologiji</a>
+      <a href="#znaci">Znakovi</a>
+      <a href="#quran">Kur'an i Sunnet</a>
+      <a href="#podrska">Samozaštita</a>
+      <a href="#forum">Forum</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="#forum">Postavi pitanje</a>
+      <a class="btn btn-primary" href="#podrska">Kako se zaštititi <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <button class="burger" id="burger" aria-label="Meni" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero" id="pocetna">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow reveal">Islamska psihologija · vodič kroz prepoznavanje</span>
+        <h1 class="reveal" data-d="1">Kako <em>prepoznati</em> narcisa — iznutra i izvana.</h1>
+        <p class="lede reveal" data-d="2">Narcizam nije samo „ponašanje koje se ne sviđa“. Iza njega stoji duboka, često skrivena bolest srca. Ovaj vodič povezuje savremenu psihologiju s Kur'anskom mudrošću — da bi naučili da vidimo, da ne krivimo sebe i da se dostojanstveno zaštite.</p>
+        <div class="hero-actions reveal" data-d="3">
+          <a class="btn btn-primary" href="#psihologija">Započni čitanje <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-ghost" href="#quran">Kur'an i Sunnet</a>
+        </div>
+        <div class="hero-stats reveal" data-d="4">
+          <div><div class="n">5</div><div class="l">koncepta srca</div></div>
+          <div><div class="n">11</div><div class="l">potvrda iz teksta</div></div>
+          <div><div class="n">6</div><div class="l">koraka zaštite</div></div>
+          <div><div class="n">3</div><div class="l">kategorije foruma</div></div>
+        </div>
+      </div>
+      <div class="hero-media reveal" data-d="2">
+        <span class="hero-arab" aria-hidden="true">قلبك</span>
+        <div class="frame kb">
+          <img src="https://picsum.photos/seed/islamic-courtyard-quiet-dawn/900/1125" alt="Smireno dvorište na svitanju — metafora mira srca">
+        </div>
+        <div class="hero-tag">
+          <span class="t">«Bilježi i vidi»</span>
+          <span class="s">Prepoznavanje je prvi korak, ne osuda. Znanje oslobađa — kada se koristi mudro.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marq" aria-hidden="true">
+  <div class="marq-track">
+    <span>Kibr — oholost</span><span>Ujb — samoljublje</span><span>Riya — hvalisanje</span><span>Hasad — zavist</span><span>Ghaflah — zaborav</span><span>Tawba — povratak</span><span>Sabr — strpljivost</span><span>Adab — dostojanstvo</span>
+    <span>Kibr — oholost</span><span>Ujb — samoljublje</span><span>Riya — hvalisanje</span><span>Hasad — zavist</span><span>Ghaflah — zaborav</span><span>Tawba — povratak</span><span>Sabr — strpljivost</span><span>Adab — dostojanstvo</span>
+  </div>
+</div>
+
+<!-- ============ 1. KONCEPT / PSIHLOGIJA ============ -->
+<section class="section" id="psihologija">
+  <div class="wrap">
+    <div class="concept-grid">
+      <div class="concept-sticky reveal">
+        <div class="card">
+          <span class="bism">بِسْمِ اللَّهِ</span>
+          <h3>Kako čitamo osobu kroz islam</h3>
+          <p>Islam ne dijeli ljude na „dobre“ i „loše“. On gleda u <em>niyet</em> (namjere), <em>qalb</em> (srce) i <em>akhlāq</em> (odnos prema drugima). Narcizam se ovdje ne osuđuje kao osoba, već se razotkriva kao <b>bolest srca</b> — nešto što se može prepoznati, razumjeti i, u dijelu koji zavisi od nas, ispraviti.</p>
+        </div>
+        <div class="note" style="margin-top:18px;background:var(--bone);border:1px solid var(--line);border-left:3px solid var(--emerald)">
+          <b>Čitaj s ljubavlju.</b> Ovaj vodič služi razumijevanju i zaštiti — ne da bi smo gradili osude nad drugima ni nad sobom.
+        </div>
+      </div>
+
+      <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-bottom:8px">
+          <div>
+            <span class="eyebrow reveal">01 · O psihologiji narcizma</span>
+            <h2 class="h-lg reveal" data-d="1" style="margin-top:14px">Narcizam kroz prizmu islamske psihologije</h2>
+          </div>
+        </div>
+        <p class="lede reveal" data-d="2" style="margin:18px 0 10px">Savremena psihologija i islamska duhovna tradicija, iz dva različita ugla, opisuju istu stvar: <b>osobu čije se „ja“ nadiglo iznad stvarnosti, iznad drugih i iznad Boga.</b> Razlika je u rječniku — ne u suštini.</p>
+
+        <div class="flow">
+          <div class="flow-item reveal">
+            <span class="num">01</span>
+            <div><h4>Psihologija: Narcisoidni poremećaj</h4><p>Previše velika slika o sebi, potreba za divljenjem, nedostatak empatije i iskoristivanje drugih — često skrivena iza krhkog, ranjivog ega.</p></div>
+            <span class="ar">NPI</span>
+          </div>
+          <div class="flow-item reveal" data-d="1">
+            <span class="num">02</span>
+            <div><h4>Islam: <span class="serif-i">Kibr</span> — oholost</h4><p>Osjećaj da si iznad drugih, odbacivanje istine iz ponosa. Osnovna bolest koja otvara vrata svim ostalim.</p></div>
+            <span class="ar">كِبْر</span>
+          </div>
+          <div class="flow-item reveal" data-d="2">
+            <span class="num">03</span>
+            <div><h4>Islam: <span class="serif-i">Ujb</span> — samoljublje</h4><p>Kada se ljubav prema sebi pretvori u idola. Narcizam je, duhovno gledano, ujb u svojoj najrazvijenijoj formi.</p></div>
+            <span class="ar">وَهْم</span>
+          </div>
+          <div class="flow-item reveal" data-d="3">
+            <span class="num">04</span>
+            <div><h4>Islam: <span class="serif-i">Marad al-Qalb</span> — bolest srca</h4><p>Kada se srce zatvori od istine, empatije i skrivenog (Ghayb). Vanjsko ponašanje narcisa je vidljivi simptom duboke unutarnje bolesti.</p></div>
+            <span class="ar">مَرَضُ الْقَلْب</span>
+          </div>
+          <div class="flow-item reveal" data-d="4">
+            <span class="num">05</span>
+            <div><h4>Obećanje: <span class="serif-i">Tawba</span> — povratak</h4><p>Islam ne osuđuje do kraja. Isti kibr koji je bolest, može postati put izlječenja — kroz samokritiku, poniznost i iskrenost.</p></div>
+            <span class="ar">تَوْبَة</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. BOLESTI SRCA (BENTO) ============ -->
+<section class="section" id="bolestiti" style="background:var(--bone)">
+  <div class="wrap">
+    <div class="disease-head">
+      <span class="eyebrow reveal">02 · Anatomija bolesti</span>
+      <h2 class="h-lg reveal" data-d="1" style="margin-top:14px">Pet bolesti srca koje gradaju narcizma</h2>
+      <p class="lede reveal" data-d="2">U islamskoj psihologiji, „srce“ (qalb) nije organ — to je sjedište razumijevanja, namjere i osjećaja. Kada se ono zatro, cijeli čovjek počinje vidjeti svijet kao pozorište u kojem je on glavni.</p>
+    </div>
+
+    <div class="disease-grid">
+      <article class="tile big reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M5 8l7-6 7 6M5 16l7 6 7-6"/></svg></div>
+        <span class="ar">كِبْر</span>
+        <h4>Kibr — oholost</h4>
+        <span class="gloss">Osnovna bolest iz koje rastu sve ostale.</span>
+        <p>„Oholost je odbacivanje istine i preziranje ljudi.“ To je ne samo nadmehur — to je <b>odbacivanje istine</b>. Narcis odbacuje istinu kad ona ugrožava njegovu sliku o sebi. Ima dvije dimenzije: prema Bogu (osjećaj da ti On nije ništa dužan) i prema drugima (osjećaj da si ti iznad njih). To je bolest koja pretvara svakodnevnu interakciju u teren na kojem se treba osjećati „pobjedno“. Svaka kritika postaje napad. Svako slavlje drugog postaje prijetnja. Svaka molitva — izgovor za ponos.</p>
+      </article>
+
+      <article class="tile mid reveal" data-d="1">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21C6 16 2 12 2 8a5 5 0 019-3 5 5 0 019 3c0 4-4 8-8 13z"/></svg></div>
+        <span class="ar">وَهْم</span>
+        <h4>Ujb — samoljublje</h4>
+        <p>Kada se ljubav prema sebi pretvori u idola. Ujb je „lažna ljubav“ koja gradi zamku iz koje čovjek ne može izaći sam. Narcizoidna osoba je, duhovno gledano, ujb u svojoj najrazvijenijoj formi — jer je ona ljubav koja ne zna ništa o drugome.</p>
+      </article>
+
+      <article class="tile mid reveal" data-d="2">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 20l4-4M10 20l4-4M16 20l4-4M12 4v10M6 10l6 4 6-4"/></svg></div>
+        <span class="ar">رِيَاء</span>
+        <h4>Riya — hvalisanje</h4>
+        <p>Potrebno da drugi vide koliko si dobar, koliko si pametan, koliko te ljudi slušaju. Riya pretvara dobrodjelo u performans — i time ga ruši iznutra. Narcis živi u „javnom“ svijetu; njegova intimnost je oblik laži.</p>
+      </article>
+
+      <article class="tile sm reveal" data-d="1">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 20c0-6 4-12 8-12s8 6 8 12M12 8v-4M8 12h8"/></svg></div>
+        <span class="ar">حَسَد</span>
+        <h4>Hasad — zavist</h4>
+        <p>Kada tuđe dobro postane prijetnja. Hasad je tiha, plitka bolest koja jede iznutra. Narcišoidna osoba često osjeća hasad prema onima koji ne traže pažnju, ali žive u miru — jer oni „pokazuju“ da njena dramatičnost nije nužna.</p>
+      </article>
+
+      <article class="tile sm reveal" data-d="2">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <span class="ar">غَفْلَة</span>
+        <h4>Ghaflah — zaborav</h4>
+        <p>Zaborav na Gajba (Boga, posljedične posljedice, osjećaj drugog). Ghaflah je stanje u kojem čovjek živi „u sadašnjem trenutku“ i ne vidi širu sliku. Narcis je ghaflah u svom najčistijem obliku: ne vidi ništa osim sebe.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. ZNAKOVI (STICKY) ============ -->
+<section class="section" id="znaci">
+  <div class="wrap">
+    <div style="max-width:720px">
+      <span class="eyebrow reveal">03 · Kako ga prepoznati</span>
+      <h2 class="h-lg reveal" data-d="1" style="margin-top:14px">Znakovi prepoznavanja u svakodnevnim odnosima</h2>
+      <p class="lede reveal" data-d="2" style="margin-top:18px">Narcizoidno ponašanje nije uvijek teško, glasno i očito. Često dolazi obučeno u ljubaznost, religioznost ili brigu. Zato ga ne prepoznajemo po <i>šta kaže</i>, već po <i>šta radi — i kakav efekt ostavlja</i>.</p>
+    </div>
+
+    <div class="signs-grid">
+      <div class="signs-left reveal">
+        <div class="context-tabs" role="tablist" aria-label="Kontekst odnosa">
+          <button class="active" data-ctx="porodica" role="tab" aria-selected="true">Porodica</button>
+          <button data-ctx="brak" role="tab" aria-selected="false">Brak</button>
+          <button data-ctx="posao" role="tab" aria-selected="false">Posao</button>
+          <button data-ctx="opste" role="tab" aria-selected="false">Opšte</button>
+        </div>
+        <p class="muted" style="font-size:.9rem;margin-bottom:20px">Brodilo: nijedna od ovih osobina, sama po sebi, ne čini nekoga narcisom. <b>Algoritam</b> je — ponavljajući, uzorak, uz oskudicu empatije i potrebe za kontrolom.</p>
+        <div class="note">
+          <b>Praćenica:</b> Narcisoidna osoba često <i>prepozna</i> da ju opisujete — i može to okrenuti protiv vas. Zato ne tražite potvrdu od njega. Tražite potvrdu od <b>uzorka u vremenu</b> — što se ponavljalo, što je ostalo.
+        </div>
+      </div>
+
+      <div class="signs-right">
+        <!-- PORODICA -->
+        <div class="signs-panel active" data-ctx="porodica">
+          <div class="sign">
+            <span class="dot">1</span>
+            <div><h4>Djeca su „projekt“, ne ljudi</h4><p>Djeca se koriste kao dokaz koliko je on/ona uspješan roditelj — ili se ignorišu ako ne potvrđuju tu sliku. Emocionalne potrebe djeteta su „prevelike“ i „nezahvalne“.</p><span class="warn">Kontrola</span></div>
+          </div>
+          <div class="sign">
+            <span class="dot">2</span>
+            <div><h4>Triangulacija unutar porodice</h4><p>„Neka ti mama kaže šta mislim ja.“ Povezivanje tri strane (roditelj—roditelj—djete) kako bi se održala kontrola, a ne bila odgovorna.</p><span class="warn">Manipulacija</span></div>
+          </div>
+          <div class="sign">
+            <span class="dot">3</span>
+            <div><h4>„Ti si uvijek preosjetljiv/na“</h4><p>Kada ti izneseš osjećaj, on postane tvoj problem. Empatijska zahtjeva se smatra „nesposobnošću“.</p><span class="warn">Nedostatak empatije</span></div>
+          </div>
+          <div class="sign">
+            <span class="dot">4</span>
+            <div><h4>Porodična povijest se koristi kao oružje</h4><p>„Kako je tvoja majka radila, tako ću i ja.“ Stara rana postaje opravdanje za novu povredu.</p><span class="warn">Manipulacija</span></div>
+          </div>
+          <div class="sign">
+            <span class="dot">5</span>
+            <div><h4>Ne prepoznaje ni svoju krivicu</h4><p>Krivicu prebacuje na okolinu. A ako prepozna, to je „pogreška“, ne „povreda“. Ili je krivica „tvoja jer si me izazvao“.</p><span class="warn">Lažna slika</span></div>
+          </div>
+        </div>
+
+        <!-- BRAK -->
+        <div class="signs-panel" data-ctx="brak">
+          <div class="sign">
+            <span class="dot">1</span>
+            <div><h4>„Idealni početak“ — zatim „razočaranje“</h4><p>Prvih mjeseci si „poseban/a“. Zatim počinje kritika: „Ovo nisi ti kakav/ka si bio/la.“ Idealizacija se mijenja u devalvaciju.</p><span class="warn">Idealizacija → devalvacija</span></div>
+          </div>
+          <div class="sign">
+            <span class="dot">2</span>
+            <div><h4>Gaslighting kao način kontrole</h4><p>„Ti si preosjetljiv/na. Ja to nikad nisam rekao/la. Ti misliš previše.“ Vaš vlastiti doživljaj postaje upitljiv.</p><span class="warn">Gaslighting</span></div>
+          </div>
+          <div class="sign">
+            <span class="dot">3</span>
+            <div><h4>Emocionalna dostupnost je uslovljena</h4><p>Emocije su „rezultat tvoje ponašanja“. Ako si „dobar/ra“ — dobiješ toplinu. Ako si „loš/la“ — dobiješ hladnoću. Odnos postaje transakcija.</p><span class="warn">Emocionalna ishrana</span></div>
+          </div>
+          <div class="sign">
+            <span class="dot">4</span>
+            <div><h4>Isolacija od prijatelja i porodice</h4><p>„Oni te ne razumiju. Samo ja te razumijem.“ Odnos se zatvara — i postaje jedini izvor podrške.</p><span class="warn">Isolacija</span></div>
+          </div>
+          <div class="sign">
+            <span class="dot">5</span>
+            <div><h4>Lažni moral kao štit</h4><p>„Ja sam vjeronaučniji. Ja sam onaj koji se molitve drži. Ti si taj koji je problem.“ Religija postaje alati za kontrolu, ne put izlječenja.</p><span class="warn">Lažni moral</span></div>
+          </div>
+          <div class="sign">
+            <span class="dot">6</span>
+            <div><h4>Nema odgovornosti, samo opravdanja</h4><p>Svaka kritika se pretvara u obrambenu poziciju. Nema prostora za dijalog — samo za „dokazivanje“.</p><span class="warn">Odbacivanje istine</span></div>
+          </div>
+        </div>
+
+        <!-- POSAO -->
+        <div class="signs-panel" data-ctx="posao">
+          <div class="sign">
+            <span class="dot">1</span>
+            <div><h4>Kradnja zaslugi, dijeljenje krivice</h4><p>„Nismo mi dobili taj projekat, ja sam ga dobio.“ U uspjehu je on/ona. U neuspjehu su svi.</p><span class="warn">Kontrola narativa</span></div>
+          </div>
+          <div class="sign">
+            <span class="dot">2</span>
+            <div><h4>Stvaranje straha kao motivacije</h4><p>„Ako ovo ne uradiš do pet, gubiš posao.“ Strah postaje „standard“. Ljudi rade iz straha, ne iz poštovanja.</p><span class="warn">Zlostavljanje</span></div>
+          </div>
+          <div class="sign">
+            <span class="dot">3</span>
+            <div><h4>Ne podnosi kolege koji su uspješniji</h4><p>Oni se marginaliziraju, ignoriraju, ili se traži „povod“ za kritiku. Uspjeh drugog postane prijetnja.</p><span class="warn">Zavist / hasad</span></div>
+          </div>
+          <div class="sign">
+            <span class="dot">4</span>
+            <div><h4>Lažne obećanja i lažni moral</h4><p>„Ovo je tvog prava. Ja ti vjerujem. Ovo je moj način da ti pokažem poštovanje.“ Ili: „Ja to radim za tebe, a ne za sebe.“ (Isti obrazac, druga rečenica.)</p><span class="warn">Lažna slika</span></div>
+          </div>
+          <div class="sign">
+            <span class="dot">5</span>
+            <div><h4>Ne može reći „ne znam”</h4><p>Narcis mora izgledati kao da zna. Ako ne zna, tvrdi. Ako pogriješiti, ne priznaje. Ako kritikuje, pretvara u napad.</p><span class="warn">Oholost</span></div>
+          </div>
+        </div>
+
+        <!-- OPSTE -->
+        <div class="signs-panel" data-ctx="opste">
+          <div class="sign">
+            <span class="dot">1</span>
+            <div><h4>Nikad ne traži izvinjenje</h4><p>Ili izvinjenje bez promjene — „Oprosti, ali ti si me izazvao/la.“</p><span class="warn">Nedostatak odgovornosti</span></div>
+          </div>
+          <div class="sign">
+            <span class="dot">2</span>
+            <div><h4>Pravo na pažnju</h4><p>U svakom razgovoru — on/ona. U svakoj grupi — on/ona. Tišina postaje napad.</p><span class="warn">Potreba za divljenjem</span></div>
+          </div>
+          <div class="sign">
+            <span class="dot">3</span>
+            <div><h4>Drugi su „alati”</h4><p>Prijatelj je onaj koji sluša. Kolega je onaj koji radi. Stranac je onaj koji potvrđuje.</p><span class="warn">Instrumentalizacija</span></div>
+          </div>
+          <div class="sign">
+            <span class="dot">4</span>
+            <div><h4>Ne može slušati</h4><p>Razgovor nije dijalog — monolog. Drugi su tu da se čuje, ne da se razumije.</p><span class="warn">Nedostatak empatije</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. KUR'AN I SUNNET ============ -->
+<section class="section" id="quran">
+  <div class="wrap">
+    <span class="eyebrow on-dark reveal">04 · Kur'anski ajeti i hadisi</span>
+    <h2 class="h-lg reveal" data-d="1" style="margin-top:14px">Kur'an i Sunnet — s dubokim tafsir-om</h2>
+    <p class="intro reveal" data-d="2">Islam ne daje „dijagnozu“ narcizma — ali daje <b>mapu</b> bolesti srca. Svaki od ovih tekstova otvara jedan aspekt: oholost, licemjerstvo, nanošenje štete, ili — najvažnije — <b>put izlječenja</b>. Citati su u izvornom arapskom, s prijevodom i psihološko-duhovnim tumačenjem.</p>
+
+    <!-- AYAH 1 -->
+    <article class="ayah reveal">
+      <span class="tag">ﻭ</span>
+      <span class="ref">Al-Humaza · 104:1</span>
+      <div class="ar">وَيْلٌ لِّكُلِّ هُمَزَةٍ لُّمَزَةٍ</div>
+      <p class="tr">Neka propadne svaki podmetala i zlostavljajući koji zbunjuje.</p>
+      <div class="tafsir"><b>Psihološko-duhovno:</b> Oholost (kibr) nije samo „osjećaj da si bolji“. Ona je aktivna — podmetanje, zavrzlu, ponižavanje. U islamskoj psihologiji, <b>osoba koja se osjeća iznad drugih je opasna po okolinu</b>, ne samo po sebe. Hadis govori: „Ne bi ušao u Džennet onaj u čijem je srcu zrno oholosti.“ (Muslim)</div>
+    </article>
+
+    <!-- AYAH 2 -->
+    <article class="ayah reveal" data-d="1">
+      <span class="tag">ﻭ</span>
+      <span class="ref">Al-Mu'minun · 23:61</span>
+      <div class="ar">وَلَا تَمْشِ فِي الْأَرْضِ مَرَحًا ۖ إِنَّكَ لَن تَخْرِقَ الْأَرْضَ وَلَا تَبْلُغُ الْجِبَالَ طُولًا</div>
+      <p class="tr">I ne hodaj po zemlji oholo — zaista, ti ne možeš raspolomiti zemlju niti dostići gore visinom.</p>
+      <div class="tafsir"><b>Psihološko-duhovno:</b> Ovdje je najdublji tafsir: <b>narcis se osjeća kao da je veći od stvarnosti.</b> On „raspolomljava zemlju“ — misli da je iznad svih granica, iznad svih drugih, iznad Boga. Ali Kur'an ga podsjeća: <i>ne možeš</i>. Nijedna granica ne možeš nadjačati. Ovo je poziv na poniznost — ne kao slom, već kao sloboda.</div>
+    </article>
+
+    <!-- AYAH 3 -->
+    <article class="ayah reveal" data-d="2">
+      <span class="tag">ﻭ</span>
+      <span class="ref">Al-Mu'minun · 23:31</span>
+      <div class="ar">وَلَا تَقْفُ مَا لَيْسَ لَكَ بِهِ عِلْمٌ</div>
+      <p class="tr">I ne prate ono čega nemaš znanja.</p>
+      <div class="tafsir"><b>Psihološko-duhovno:</b> Narcis <b>ne prepoznaje granicu između znanja i ne-znanja</b>. On zna, on misli, on odlučuje — ali ne sluša. Hadis kaže: „Neka govori svaki od vas onaj koji vjeruje u Allah i Poslanika.“ (Buhari, Muslim) — govoriš iz znanja, ne iz potrebe da se čuješ.</div>
+    </article>
+
+    <!-- AYAH 4 -->
+    <article class="ayah reveal">
+      <span class="tag">ﻭ</span>
+      <span class="ref">Al-Ma'arij · 74:30</span>
+      <div class="ar">وَإِذَا سَمِعُوا اللَّغْوَ أَعْرَضُوا عَنْهُ</div>
+      <p class="tr">I kada čuju praznu riječ, okreću se od nje.</p>
+      <div class="tafsir"><b>Psihološko-duhovno:</b> Ovo je ključan znak <b>zrelosti srca</b>: sposobnost da <i>ne reaguješ</i> na laž. Narcis <b>mora</b> reagirati — na svaku laž, svaku kritiku, svako „ne“. Zrela osoba se okreće. Narcis se baci.</div>
+    </article>
+
+    <!-- AYAH 5 -->
+    <article class="ayah reveal" data-d="1">
+      <span class="tag">ﻭ</span>
+      <span class="ref">Al-Mu'minun · 23:28–30</span>
+      <div class="ar">وَالَّذِينَ هُمْ عَنِ اللَّغْوِ مُعْرِضُونَ</div>
+      <p class="tr">I oni koji se okreću od prazne riječi.</p>
+      <div class="tafsir"><b>Psihološko-duhovno:</b> U islamskoj psihologiji, „lāghw“ (prazna riječ) nije samo „glupost“. To je <b>svaka riječ koja služi ego-u, a ne istini</b>. Narcis <b>živi u lāghw-u</b> — u riječima koje služe njemu, ne istini. Zrela osoba se okreće. Ovo je razlika između <i>govora</i> i <i>govornika</i>.</div>
+    </article>
+
+    <!-- AYAH 6 -->
+    <article class="ayah reveal" data-d="2">
+      <span class="tag">ﻭ</span>
+      <span class="ref">Al-Baqara · 2:264</span>
+      <div class="ar">وَلَا تَكُونُوا كَالَّذِينَ أَنْفَقُوا مَالَهُمْ رِيَاءَ النَّاسِ</div>
+      <p class="tr">I ne budete onima koji troše svoja imovina radi hvalisanja.</p>
+      <div class="tafsir"><b>Psihološko-duhovno:</b> Riya — hvalisanje — je <b>srž narcizoidne ličnosti</b>. Ono što drugima čini, čini <i>da bi drugi vidjeli</i>. Ako drugi ne vide — nije urađeno. Hadis: „Onaj koji hvališ, Allah će ga hvalisati.“ (Muslim) — tj. onaj koji hvališ druge, Allah će hvalisati tebe. Ali onaj koji hvališ sebe, <b>Allah će te kazniti</b> (ili: ostaviti bez nagrade). Ovo je najdublji razlog zašto riya „uništava“ — jer ona <i>uništava namjeru</i>.</div>
+    </article>
+
+    <!-- AYAH 7 -->
+    <article class="ayah reveal">
+      <span class="tag">ﻭ</span>
+      <span class="ref">Al-Mu'minun · 23:96</span>
+      <div class="ar">يَسْأَلُونَكَ عَنِ السَّاعَةِ أَيَّانَ مُرْسَاهَا</div>
+      <p class="tr">Pitaju te o satu (Džennetu) — kada će se desiti.</p>
+      <div class="tafsir"><b>Psihološko-duhovno:</b> Ovo je <b>poziv na strpljivost</b>. Narcis <b>ne može čekati</b>. On mora <i>sada</i> — sada da ga se čuje, sada da ga se hvali, sada da se baci. Zrela osoba <b>strpljivo</b> čeka. Ovo je razlika između <i>strpljivosti</i> i <i>patnje</i>.</div>
+    </article>
+
+    <!-- AYAH 8 -->
+    <article class="ayah reveal" data-d="1">
+      <span class="tag">ﻭ</span>
+      <span class="ref">Al-Baqara · 2:192</span>
+      <div class="ar">وَإِنْ جَنَحُوا لِلسَّلْمِ فَاجْنَحْ لَهَا وَتَوَكَّلْ عَلَى اللَّهِ</div>
+      <p class="tr">A ako skrene za mir, skreni i ti za njega, i osloni se na Allaha.</p>
+      <div class="tafsir"><b>Psihološko-duhovno:</b> Ovo je <b>poziv na mir</b> — ne kao slom, već kao <b>odluku</b>. Narcis <b>mora</b> da se bori. Zrela osoba <b>odlučuje</b> da se ne bori. Ovo je najdublji razlog zašto <b>strpljivost</b> je jača od <b>odbacivanja</b>.</div>
+    </article>
+
+    <!-- HADIS 1 -->
+    <article class="ayah reveal" data-d="2">
+      <span class="tag">ﻫ</span>
+      <span class="ref">Buhari · 170, Muslim · 91</span>
+      <div class="ar">لاَ يَدْخُلُ الْجَنَّةَ مَنْ كَانَ فِي قَلْبِهِ مِثْقالُ ذَرَّةٍ مِنْ كِبْر</div>
+      <p class="tr">Neće ući u Džennet onaj u čijem je srcu zrno oholosti (kibr).</p>
+      <div class="tafsir"><b>Psihološko-duhovno:</b> Ovo je najvažniji hadis za razumijevanje narcizma. <b>Kibr nije samo „ponos“</b> — to je <i>odbacivanje istine</i> i <i>preziranje drugih</i>. I jedno zrno — <i>miskāl</i> — je dovoljno da te <b>otjera</b>. Ovo je najdublji razlog zašto <b>narcizam</b> je najopasnija bolest srca.</div>
+    </article>
+
+    <!-- HADIS 2 -->
+    <article class="ayah reveal">
+      <span class="tag">ﻫ</span>
+      <span class="ref">Muslim · 2564, Tirmidhi · 1942</span>
+      <div class="ar">لاَ يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ</div>
+      <p class="tr">Nijedan od vas neće vjerovati sve dok ne želi svom bratu ono što želi sebi.</p>
+      <div class="tafsir"><b>Psihološko-duhovno:</b> Ovo je <b>definicija empatije</b> u islamskoj psihologiji. <b>Empati</b> je <b>ne samo osjećaj</b> — to je <i>odluk</i>a da <b>drugu želiš ono što želiš sebi</b>. Narcis <b>nije</b> empatičan — jer on <b>ne želi drugom</b>. On želi sebi.</div>
+    </article>
+
+    <!-- HADIS 3 -->
+    <article class="ayah reveal" data-d="1">
+      <span class="tag">ﻫ</span>
+      <span class="ref">Buhari · 8, Muslim · 22</span>
+      <div class="ar">مَنْ كَانَ فِي قَلْبِهِ مِثْقالُ ذَرَّةٍ مِنْ رِيَاءٍ أَهْلَكَهُ اللَّهُ</div>
+      <p class="tr">Onaj u čijem je srcu zrno hvalisanja (riya) — Allah će ga uništiti.</p>
+      <div class="tafsir"><b>Psihološko-duhovno:</b> Ovo je <b>poziv na iskrenost</b>. Narcis <b>nije iskren</b> — jer on <b>igra ulogu</b>. Zrela osoba <b>je</b> — ne <b>igra</b>. Ovo je najdublji razlog zašto <b>iskrenost</b> je najjači lijek za <b>narcizam</b>.</div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ 5. SAMOZAŠTITA ============ -->
+<section class="section" id="podrska">
+  <div class="wrap">
+    <div class="def-head">
+      <div>
+        <span class="eyebrow reveal">05 · Podrška i samozaštita</span>
+        <h2 class="h-lg reveal" data-d="1" style="margin-top:14px">Kako se dostojanstveno zaštititi</h2>
+        <p class="lede reveal" data-d="2">Prepoznavanje nije cilj — cilj je <b>sloboda</b>. Ista mudrost koja nam pomaže da prepoznamo narcizma, pomaže nam da se <b>zaštitimo</b> od njega — i od vlastitih rana. Islam ne nudi „rješenja“ — on nudi <b>put</b>.</p>
+      </div>
+      <div class="reveal" data-d="1" style="text-align:right">
+        <div class="privacy-box" style="background:var(--paper);border:1px solid var(--line);border-radius:var(--r-m);padding:28px;box-shadow:var(--shadow-s)">
+          <div class="ic" style="width:46px;height:46px;border-radius:12px;background:var(--night);color:var(--gold-soft);display:grid;place-items:center;margin-bottom:16px">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <h4 style="font-family:var(--font-d);font-size:1.25rem;margin-bottom:8px">Tvoji koraci</h4>
+          <p style="font-size:.92rem;color:var(--ink-soft)">Ovi koraci nisu „rješenja“ — su <b>put</b>. Svaki od njih je <b>izbor</b>, ne obaveza. I svaki od njih je <b>ispit</b> — za tebe i za onoga s koga se zaštituješ.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="def-bento">
+      <div class="def-card feature reveal">
+        <div>
+          <span class="k">01</span>
+          <h4>Prepozna — ne osudi</h4>
+          <p>Prvi korak je <b>vidjeti</b> — ne <b>osuditi</b>. Kada prepoznaš narcizma, ne moraš ga <b>napadati</b>. Možeš ga <b>vidjeti</b> — i onda <b>odluciti</b> šta ćeš učeti. Ovo je razlika između <i>odbacivanja</i> i <i>izlječenja</i>.</p>
+          <div class="duaa">«Bismillah — ne osuđujem, ali vidim.»</div>
+        </div>
+      </div>
+      <div class="def-card reveal" data-d="1">
+        <span class="k">02</span>
+        <div><h4>Postavi granice</h4><p>Granice nisu „napad“ — su <b>odbr</b>ana. Kada postaviš granicu, ne tražiš od njega da ju <b>prihvati</b> — tražiš od sebe da ju <b>održi</b>.</p></div>
+      </div>
+      <div class="def-card reveal" data-d="2">
+        <span class="k">03</span>
+        <div><h4>Ne traži potvrdu</h4><p>Narcis <b>nije</b> „tvrt“ koji ti može dati potvrdu. Traži potvrdu od <b>uzorka u vremenu</b> — ne od njega.</p></div>
+      </div>
+      <div class="def-card reveal" data-d="1">
+        <span class="k">04</span>
+        <div><h4>Ne daj „narcisoidnu hranu”</h4><p>Kada reaguješ na njegovu manipulaciju, dajes mu <b>hr</b>anu. Kada se ne baciš, on <b>ne dobiva</b>. Ovo je najjači lijek.</p></div>
+      </div>
+      <div class="def-card reveal" data-d="2">
+        <span class="k">05</span>
+        <div><h4>Odvrati — ne napadaj</h4><p>Ne moraš <b>napadati</b> narcisa. Možeš ga <b>vidjeti</b> — i onda <b>odvrati</b>. Ovo je najdublji razlog zašto <b>strpljivost</b> je jača od <b>odbacivanja</b>.</p></div>
+      </div>
+      <div class="def-card reveal" data-d="3">
+        <span class="k">06</span>
+        <div><h4>Traži podršku</h4><p>Nemoj <b>nositi</b> sve sam/a. Traži podršku — od <b>ljudi</b>, od <b>stručnj</b>aka, od <b>duhovnih</b> vođa. Ovo je najjači lijek.</p></div>
+      </div>
+    </div>
+
+    <div class="steps">
+      <span class="eyebrow reveal">Koraci u praksi</span>
+      <ol>
+        <li class="step reveal" data-d="0"><div class="n"></div><h5>Vidi</h5><p>Prepozna uzorak — ne osudu.</p></li>
+        <li class="step reveal" data-d="1"><div class="n"></div><h5>Postavi</h5><p>Odluci granice — i održi ih.</p></li>
+        <li class="step reveal" data-d="2"><div class="n"></div><h5>Ne daj</h5><p>Ne daj „narcisoidnu hranu“.</p></li>
+        <li class="step reveal" data-d="3"><div class="n"></div><h5>Traži</h5><p>Traži podršku — ne nosi sve sam/a.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORUM INFO ============ -->
+<section class="section" id="forum">
+  <div class="wrap">
+    <div class="forum-top">
+      <div>
+        <span class="eyebrow reveal">06 · Zajednica</span>
+        <h2 class="h-lg reveal" data-d="1" style="margin-top:14px">Forum — iskustva, pitanja i duhovni oporavak</h2>
+        <p class="lede reveal" data-d="2">Forum je <b>zaštitni prostor</b>. Svaki post ide kroz <b>moderaciju</b> prije nego postane javan — da se <b>očuva privatnost</b> i spriječ <b>neprikladan sadržaj</b>. Nema imena, nema lajkerica, nema „ratova“.</p>
+        <div class="cat-chips reveal" data-d="3">
+          <span class="cat-chip"><b>Iskustva i savjeti</b></span>
+          <span class="cat-chip"><b>Pitanja za stručnj</b>ake</span>
+          <span class="cat-chip"><b>Duhovni oporavak</b></span>
+          <span class="cat-chip"><b>Praktični koraci</b></span>
+        </div>
+      </div>
+      <div class="privacy-box reveal" data-d="1">
+        <div class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h4>Kako radi moderacija</h4>
+        <p>Svaki post (Anfrage) ide u administrativni panel. Moderator ga pregleda — i <b>odobri</b>, <b>odbije</b> ili <b>traži izmjene</b>. Tek nakon odobrenja postaje javan. Tvoj identitet ostaje <b>anoniman</b>.</p>
+        <div class="flow-demo">
+          <span class="flow-chip"><span class="d"></span>Slanje</span>
+          <span class="flow-arr">→</span>
+          <span class="flow-chip"><span class="d"></span>Mod</span>
+          <span class="flow-arr">→</span>
+          <span class="flow-chip active"><span class="d"></span>Objava</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="kucni reveal">
+      <h3>Kućni red foruma</h3>
+      <p class="sub">Projeta u duhu islamskog morala i međusobnog poštovanja. Kršenje kućnog reda = trajna zabrana.</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3 6 6 1-4.5 4 1.5 6-6-3.5L6 19l1.5-6L3 9l6-1z"/></svg>Gošćeš drugog — ne „napadaj”.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3 6 6 1-4.5 4 1.5 6-6-3.5L6 19l1.5-6L3 9l6-1z"/></svg>Ne dijeli lične podatke.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3 6 6 1-4.5 4 1.5 6-6-3.5L6 19l1.5-6L3 9l6-1z"/></svg>Ne dijeli ljude na „dobre” i „loše”.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3 6 6 1-4.5 4 1.5 6-6-3.5L6 19l1.5-6L3 9l6-1z"/></svg>Ne traži „dijagnoze” — traži savjete.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3 6 6 1-4.5 4 1.5 6-6-3.5L6 19l1.5-6L3 9l6-1z"/></svg>Ne osuđuj — savjetuj.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3 6 6 1-4.5 4 1.5 6-6-3.5L6 19l1.5-6L3 9l6-1z"/></svg>Ne daj „rješenja” — daj perspektivu.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MODERATION (FORUM + PANEL) ============ -->
+<section class="section" id="moderacija">
+  <div class="wrap">
+    <span class="eyebrow on-dark reveal">07 · Moderacija — uživo</span>
+    <h2 class="h-lg reveal" data-d="1" style="margin-top:14px">Sistem Anfrage → Moderacija → Objava</h2>
+    <p class="intro reveal" data-d="2">Ovo je <b>demo</b> foruma i administrativnog panela. Postavi pitanje (Anfrage) — ono ide u red na pregled. Prijava moderatora (demo): <b>mod</b> / <b>qalb2025</b>. Sve se čuva lokalno u tvom pregledaču.</p>
+
+    <div class="moder-grid">
+      <!-- FORM -->
+      <div class="moder-col reveal">
+        <h3><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--gold-soft)" stroke-width="1.5"><path d="M4 4h16v12H8l-4 4z"/></svg>Novo pitanje</h3>
+        <p class="hint">Anonimno. Bez obaveze navođenja imena.</p>
+        <form id="anfrage">
+          <div class="field">
+            <label for="f-tit">Naslov (kratak opis situacije)</label>
+            <input id="f-tit" type="text" maxlength="90" placeholder="npr. Kako se ponašati s ocem koji manipulira?">
+          </div>
+          <div class="field">
+            <label for="f-cat">Kategorija</label>
+            <select id="f-cat">
+              <option value="Iskustva i savjeti">Iskustva i savjeti</option>
+              <option value="Pitanja za stručnjake">Pitanja za stručnjake</option>
+              <option value="Duhovni oporavak">Duhovni oporavak</option>
+              <option value="Praktični koraci">Praktični koraci</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-body">Tvoja priča ili pitanje</label>
+            <textarea id="f-body" maxlength="2000" placeholder="Opiši situaciju — bez imena, bez detalja koji te mogu prepoznati.">
+            </textarea>
+          </div>
+          <label class="check">
+            <input type="checkbox" id="f-anon" checked>
+            <span>Želim ostati potpuno anoniman/an. (Neću dijeliti lične podatke.)</span>
+          </label>
+          <label class="check">
+            <input type="checkbox" id="f-agree">
+            <span>Prihvaćam kućni red foruma i pravila ponašanja.</span>
+          </label>
+          <div class="form-foot">
+            <button class="btn btn-gold" type="submit">Pošalji na pregled <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
+            <span class="form-msg" id="f-msg"></span>
+          </div>
+        </form>
+      </div>
+
+      <!-- QUEUE -->
+      <div class="moder-col reveal" data-d="1">
+        <h3><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--gold-soft)" stroke-width="1.5"><path d="M4 4h16M4 10h16M4 16h16M4 22h10"/></svg>Red na pregled <span class="pill pending" id="pend-count"><span class="d"></span><span id="pend-n">0</span> na čekanju</span></h3>
+        <p class="hint">Samo moderator vidi ovaj red.</p>
+        <div class="queue" id="queue"></div>
+        <div class="admin-login" id="admin-login" style="display:none">
+          <h4 style="font-family:var(--font-d);font-size:1.15rem;margin-bottom:10px">Prijava moderatora</h4>
+          <div class="row">
+            <input type="text" id="a-user" placeholder="Korisničko ime" value="mod">
+            <input type="password" id="a-pass" placeholder="Lozinka">
+            <button class="btn btn-primary" id="a-login">Prijavi se</button>
+          </div>
+          <p class="hint">Demo kredencijali: <b>mod</b> / <b>qalb2025</b></p>
+          <p class="hint" id="a-err" style="color:#e6a288"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PUBLIC BOARD -->
+    <div class="board reveal">
+      <h3><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--gold-soft)" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Javni forum <span class="pill published" style="margin-left:12px"><span class="d"></span><span id="pub-n">0</span> objava</span></h3>
+      <div class="queue" id="board"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUOTE ============ -->
+<section class="quote">
+  <div class="bg"><img src="https://picsum.photos/seed/quiet-mosque-dawn-courtyard/1800/900" alt=""></div>
+  <div class="wrap">
+    <blockquote class="reveal">„Kibr je najdublja bolest srca — i najjači lijek je <span class="serif-i">tawba</span>.“</blockquote>
+    <div class="src reveal" data-d="1">— islamska duhovna tradicija<span>Ne osuđujemo ljude. Liječimo srca.</span></div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="faq-grid">
+      <div>
+        <span class="eyebrow reveal">08 · Pitanja i odgovori</span>
+        <h2 class="h-lg reveal" data-d="1" style="margin-top:14px">Često postavljana pitanja</h2>
+        <p class="lede reveal" data-d="2" style="margin-top:18px">Kratak odgovori na najčešće nedoumice. Za dublje pitanje — koristi forum.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">Da li je narcizam „bolest“ ili „ličnost”?<span class="pm"></span></button>
+          <div class="faq-a"><p>U savremenoj psihologiji, <b>NPI</b> (narcisoidni poremećaj ličnosti) je <b>ličnost</b> — ne bolest. Ali u islamskoj psihologiji, <b>kibr</b>, <b>ujb</b>, <b>riya</b> su <b>bolesti srca</b> — i one <b>se mogu liječiti</b>. Razlika je u rječniku, ne u suštini.</p></div>
+        </div>
+        <div class="faq-item reveal" data-d="1">
+          <button class="faq-q" aria-expanded="false">Kako razlikovati narcisa od samo-povjerene osobe?<span class="pm"></span></button>
+          <div class="faq-a"><p>Samo-povjerenje <b>ne traži potvrdu</b>. Narcis <b>mora</b> da je čuje. Samo-povjerenje <b>može reći „ne znam“</b>. Narcis <b>ne može</b>. Samo-povjerenje <b>ne osuđuje</b>. Narcis <b>osuđuje</b>. I sama-povjerenje <b>ne osuđuje</b> — ono <b>vidi</b>.</p></div>
+        </div>
+        <div class="faq-item reveal" data-d="2">
+          <button class="faq-q" aria-expanded="false">Da li mogu „popraviti” narcisa?<span class="pm"></span></button>
+          <div class="faq-a"><p>Ne — i nije tvoj zadatak. Tvoj zadatak je da se <b>zaštitiš</b>. Ako on/ona <b>želi</b> izlječenje — to je <b>njegov/njena</b> posao, ne tvoj. Tvoj posao je da <b>ne budeš „žrtva”</b> — nego da <b>budeš „slobodan/slobodna”</b>.</p></div>
+        </div>
+        <div class="faq-item reveal" data-d="3">
+          <button class="faq-q" aria-expanded="false">Da li je narcizam „haram”?<span class="pm"></span></button>
+          <div class="faq-a"><p>Ne — i nije <b>haram</b>. Ali <b>kibr</b>, <b>ujb</b>, <b>riya</b> su <b>haram</b>. I one se <b>mogu ispraviti</b>. Tvoj zadatak nije da <b>osuđuješ</b> — nego da <b>izl</b>ječiš. I da <b>ne budeš „žrtva”</b>.</p></div>
+        </div>
+        <div class="faq-item reveal" data-d="4">
+          <button class="faq-q" aria-expanded="false">Kako prepoznati narcisa u porodici?<span class="pm"></span></button>
+          <div class="faq-a"><p>Ne po <b>šta kaže</b> — po <b>šta radi</b>. Ako <b>ponavlja</b> istu stvar, ako <b>ne prepoznaje</b> tvoje osjećaje, ako <b>koristi</b> te — to je <b>narcis</b>. Ne „možda narcis” — <b>narcis</b>. I ti <b>ne moraš</b> da ga „popraviš”.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand">
+          <span class="mark"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2C8.5 5 7 8 7 11a5 5 0 0010 0c0-3-1.5-6-5-9z"/><path d="M12 22v-5M9 19h6" stroke-width="1.2"/></svg></span>
+          <span>Qalb<small style="color:var(--gold-soft)">Islamska psihologija</small></span>
+        </div>
+        <p class="dis">Ovaj vodič je edukativan. On <b>ne zamjenjuje</b> stručnu psihološku podršku. Ako ti treba pomoć — <b>traži je</b>.</p>
+        <p class="dis" style="margin-top:14px"><span class="arab">﷽</span> <span style="font-size:.82rem;color:#8f887b">U ime Allaha, Milostivog, Milosrdnog.</span></p>
+      </div>
+      <div>
+        <h5>Vodič</h5>
+        <a href="#psihologija">O psihologiji</a>
+        <a href="#znaci">Znakovi</a>
+        <a href="#quran">Kur'an i Sunnet</a>
+        <a href="#podrska">Samozaštita</a>
+        <a href="#forum">Forum</a>
+        <a href="#moderacija">Moderacija</a>
+      </div>
+      <div>
+        <h5>Zajednica</h5>
+        <a href="#moderacija">Postavi pitanje</a>
+        <a href="#forum">Kućni red</a>
+        <a href="#podrska">Koraci</a>
+        <a href="#quran">Tafsir</a>
+      </div>
+      <div>
+        <h5>O nama</h5>
+        <p class="dis" style="font-size:.86rem">Qalb je <b>edukativni</b> vodič. Ne nudimo „dijagnoze”. Nudimo <b>perspektivu</b>. I <b>put</b>.</p>
+        <p class="dis" style="font-size:.82rem;color:#8f887b;margin-top:12px">© 2025 · Qalb · Sva prava zadržana.</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Napravljeno s <b style="color:#e6a288">♥</b> i mudrošću.</span>
+      <span><span class="arab" style="font-size:1.05rem">وَاللَّهُ يَهْدِي مَن يَشَاءُ</span> · <span style="font-size:.82rem;color:#8f887b">A Allah vodi koga On želi.</span></span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast-wrap" id="toasts" aria-live="polite"></div>
+
+<script>
+(function(){
+  "use strict";
+  /* ---------- REDUCED MOTION ---------- */
+  const RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- PROGRESS + NAV ---------- */
+  const prog = document.getElementById('progress');
+  const nav = document.getElementById('nav');
+  function onScroll(){
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    const p = max>0 ? (h.scrollTop / max) : 0;
+    prog.style.width = (p*100).toFixed(2)+'%';
+    nav.classList.toggle('scrolled', h.scrollTop>20);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* ---------- BURGER ---------- */
+  const burger = document.getElementById('burger');
+  const navlinks = document.getElementById('navlinks');
+  burger.addEventListener('click', ()=>{
+    const open = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+  });
+  navlinks.addEventListener('click', e=>{ if(e.target.tagName==='A') nav.classList.remove('open'); });
+
+  /* ---------- REVEAL ---------- */
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>{ if(RM){el.classList.add('in');} else io.observe(el); });
+
+  /* ---------- CONTEXT TABS ---------- */
+  const tabs = document.querySelectorAll('[data-ctx]');
+  const panels = document.querySelectorAll('.signs-panel');
+  tabs.forEach(t=>t.addEventListener('click', ()=>{
+    const ctx = t.dataset.ctx;
+    tabs.forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    panels.forEach(p=>p.classList.remove('active'));
+    document.querySelector('.signs-panel[data-ctx="'+ctx+'"]').classList.add('active');
+  }));
+
+  /* ---------- FAQ ---------- */
+  document.querySelectorAll('.faq-q').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const item = btn.parentElement;
+      const a = item.querySelector('.faq-a');
+      const open = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+      a.style.maxHeight = open ? a.scrollHeight+'px' : '0px';
+    });
+  });
+
+  /* ---------- TOAST ---------- */
+  const tw = document.getElementById('toasts');
+  function toast(msg, type){
+    const el = document.createElement('div');
+    el.className = 'toast '+(type||'');
+    const icon = type==='ok'
+      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>'
+      : type==='warn'
+      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v5M12 16v.01M10.3 3.9L2 18a2 2 0 001.7 3h16.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>'
+      : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16v.01"/></svg>';
+    el.innerHTML = icon + '<span>'+msg+'</span>';
+    tw.appendChild(el);
+    setTimeout(()=>{ el.style.transition='opacity .4s,transform .4s'; el.style.opacity='0'; el.style.transform='translateY(10px)'; setTimeout(()=>el.remove(),420); }, 3800);
+  }
+
+  /* ---------- FORUM DATA ---------- */
+  const KEY = 'qalb_forum_v1';
+  const ADMIN = { user:'mod', pass:'qalb2025' };
+  const now = ()=>new Date().toLocaleString('bs-BA',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});
+
+  function seed(){
+    return [
+      {id:'s1', cat:'Duhovni oporavak', title:'Kako da se smirim nakon razgovora s ocem?',
+       body:'Svaki put kad mu kažem da me boli, on kaže „ti si preosjetljiv“. Ne znam da li sam ja problem ili on. Molim za savjet kako da se ne uništim iznutra.',
+       status:'published', anon:true, ts: now()},
+      {id:'s2', cat:'Iskustva i savjeti', title:'Da li je ova osoba „narcis“?',
+       body:'Radim s kolegom koji uvijek krade zasluge i ne priznaje grešku. Da li je to narcizam, ili samo loš kolega? Kako da ga ne osuđujem a da se i ne „žrtvujem“?',
+       status:'pending', anon:true, ts: now()},
+      {id:'s3', cat:'Pitanja za stručnjake', title:'Kako da postavim granice supruzi?',
+       body:'Ona mi kaže da sam „nepoštovan“ kad joj kažem da mi je dosadno. Ne znam da li je to narcizam, ili ja nisam dovoljno „pametan“ da je razumijem.',
+       status:'rejected', anon:true, ts: now(), note:'Odbijeno: sadrži lične podatke i optužbe koje nisu podržane uzorkom.'}
+    ];
+  }
+
+  let db;
+  try { db = JSON.parse(localStorage.getItem(KEY)) || seed(); }
+  catch(e){ db = seed(); }
+  if(!Array.isArray(db)) db = seed();
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(db)); }catch(e){} }
+  save();
+
+  const esc = (s)=>String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const pillFor = (st)=>{
+    if(st==='pending') return '<span class="pill pending"><span class="d"></span>Na čekanju</span>';
+    if(st==='published') return '<span class="pill published"><span class="d"></span>Objavljeno</span>';
+    return '<span class="pill rejected"><span class="d"></span>Odbijeno</span>';
+  };
+
+  function threadHTML(t, adminMode){
+    const acts = adminMode ? (
+      t.status==='pending'
+        ? '<button class="act app" data-act="approve" data-id="'+t.id+'">Odobri</button><button class="act rej" data-act="reject" data-id="'+t.id+'">Odbij</button>'
+        : t.status==='published'
+        ? '<button class="act und" data-act="unpublish" data-id="'+t.id+'">Povuci</button>'
+        : '<button class="act und" data-act="publish" data-id="'+t.id+'">Objavi</button>'
+    ) : '';
+    return '<article class="thread" data-id="'+t.id+'">'+
+      '<div class="top"><span class="cat">'+esc(t.cat)+'</span>'+pillFor(t.status)+(t.anon?'<span class="pill anon"><span class="d"></span>Anonimno</span>':'')+'<span class="meta">'+esc(t.ts)+'</span></div>'+
+      '<h4>'+esc(t.title)+'</h4>'+
+      '<div class="body">'+esc(t.body)+'</div>'+
+      (t.note && adminMode ? '<p class="meta" style="color:#e6a288;margin-bottom:12px">Napomena mod: '+esc(t.note)+'</p>':'')+
+      (acts?'<div class="actions">'+acts+'</div>':'')+
+    '</article>';
+  }
+
+  const queue = document.getElementById('queue');
+  const board = document.getElementById('board');
+  const pendN = document.getElementById('pend-n');
+  const pubN = document.getElementById('pub-n');
+  let isAdmin = false;
+
+  function render(){
+    const pending = db.filter(t=>t.status==='pending');
+    const published = db.filter(t=>t.status==='published').sort((a,b)=>b.ts.localeCompare(a.ts));
+    const rejected = db.filter(t=>t.status==='rejected');
+
+    if(isAdmin){
+      let html = pending.map(t=>threadHTML(t,true)).join('');
+      rejected.forEach(t=>{ html += threadHTML(t,true); });
+      if(!pending.length && !rejected.length) html = '<div class="board-empty">Nema postova na pregledu. Čestitamo — sve je uredno.</div>';
+      queue.innerHTML = html;
+    } else {
+      queue.innerHTML = '<div class="board-empty">Red na pregled je dostupan samo moderatoru. Prijavi se za pristup.</div>';
+    }
+
+    board.innerHTML = published.length
+      ? published.map(t=>threadHTML(t,false)).join('')
+      : '<div class="board-empty">Još nema objavljenih postova. Budi prvi/la — pošalji svoje pitanje.</div>';
+
+    pendN.textContent = pending.length;
+    pubN.textContent = published.length;
+
+    /* wire actions */
+    queue.querySelectorAll('[data-act]').forEach(b=>{
+      b.addEventListener('click', ()=>{
+        const id = b.dataset.id, act = b.dataset.act;
+        const t = db.find(x=>x.id===id); if(!t) return;
+        if(act==='approve'){ t.status='published'; toast('Post odobren i objavljen.','ok'); }
+        else if(act==='reject'){ t.status='rejected'; t.note='Odbijeno od strane moderatora.'; toast('Post odbijen.','warn'); }
+        else if(act==='publish'){ t.status='published'; toast('Post objavljen.','ok'); }
+        else if(act==='unpublish'){ t.status='rejected'; toast('Post povučen iz javnosti.','warn'); }
+        save(); render();
+        const el = queue.querySelector('.thread[data-id="'+id+'"]'); if(el){ el.classList.add('flash'); }
+      });
+    });
+  }
+
+  /* ---------- ADMIN LOGIN ---------- */
+  const aLogin = document.getElementById('a-login');
+  const aErr = document.getElementById('a-err');
+  aLogin.addEventListener('click', ()=>{
+    const u = document.getElementById('a-user').value.trim();
+    const p = document.getElementById('a-pass').value;
+    if(u===ADMIN.user && p===ADMIN.pass){
+      isAdmin = true; aErr.textContent='';
+      toast('Prijavljen si kao moderator.','ok');
+      render();
+    } else {
+      aErr.textContent='Pogrešno korisničko ime ili lozinka.';
+      toast('Neispravne kredencijale.','warn');
+    }
+  });
+  document.getElementById('a-pass').addEventListener('keydown', e=>{ if(e.key==='Enter') aLogin.click(); });
+
+  /* ---------- SUBMIT ---------- */
+  const form = document.getElementById('anfrage');
+  const fMsg = document.getElementById('f-msg');
+  form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const title = document.getElementById('f-tit').value.trim();
+    const cat = document.getElementById('f-cat').value;
+    const body = document.getElementById('f-body').value.trim();
+    const agree = document.getElementById('f-agree').checked;
+    const anon = document.getElementById('f-anon').checked;
+
+    fMsg.className='form-msg';
+    if(title.length<4){ fMsg.textContent='Naslov mora imati bar 4 znaka.'; fMsg.classList.add('err'); return; }
+    if(body.length<10){ fMsg.textContent='Tkoje pitanje mora imati bar 10 znakova.'; fMsg.classList.add('err'); return; }
+    if(!agree){ fMsg.textContent='Moraš prihvatiti kućni red.'; fMsg.classList.add('err'); return; }
+
+    const t = {
+      id: 'u'+Date.now(), cat, title, body, status:'pending', anon, ts: now()
+    };
+    db.push(t); save();
+    form.reset();
+    document.getElementById('f-anon').checked = true;
+    fMsg.className='form-msg ok';
+    fMsg.textContent = 'Pošljeno na pregled. Objavit će ga moderator.';
+    toast('Tvoje pitanje je poslano na pregled.','ok');
+    render();
+    setTimeout(()=>{ fMsg.textContent=''; }, 6000);
+  });
+
+  /* ---------- INIT ---------- */
+  render();
+})();
+</script>
+</body>
+</html>
