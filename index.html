@@ -214,7 +214,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
     </div>
     <div class="hero-media">
       <div class="frame">
-        <img src="https://picsum.photos/seed/quiet-dawn-courtyard/800/1000" alt="Islamska arhitektura - mir srca">
+        <!-- ZAMIJENJENA SLIKA: Sretna muslimanska porodica -->
+        <img src="https://images.unsplash.com/photo-1609234656388-0ff363383899?auto=format&fit=crop&w=900&q=80" alt="Sretna muslimanska porodica u harmoniji">
       </div>
     </div>
   </div>
@@ -233,7 +234,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
   <div class="wrap">
     <span class="eyebrow" data-i18n="sim_eyebrow">Interaktivni moduli</span>
     <h2 class="h-lg" data-i18n="sim_title">Simulacija dinamike manipulacije u realnom vremenu</h2>
-    <p class="lede" data-i18n="sim_desc">Odaberite scenario i pogledajte kako se razgovor odvija korak po korak. Otkrijte skriivene namjere iza riječi manipulatora.</p>
+    <p class="lede" data-i18n="sim_desc">Odaberite scenario i pogledajte kako se razgovor odvija korak po korak. Otkrijte skrivene namjere iza riječi manipulatora.</p>
 
     <div class="sim-container">
       <div class="sim-tabs">
@@ -484,7 +485,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 document.addEventListener("DOMContentLoaded", function() {
   "use strict";
 
-  /* TRANSLACIJSKI DICTIONARY */
+  /* VIŠEJEZIČNI RJEČNIK ZA STRANICU I ANIMACIJU */
   const i18n = {
     bs: {
       sub_logo: "Islamska psihologija",
@@ -614,41 +615,85 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   };
 
-  /* PROMJENA JEZIKA */
+  /* MULTI-LANGUAGE SCENARIOS FOR SIMULATION */
+  const scenariosMultilingual = {
+    bs: {
+      gaslighting: [
+        { sender: 'a', tag: 'Žrtva', text: 'Tužan/na sam jer si ponovo prekršio/la naš dogovor i zakasnio/la sat vremena.' },
+        { sender: 'b', tag: 'Manipulator (Gaslighting)', text: 'Ti uvijek praviš dramu ni oko čega! Nikakav dogovor nismo imali. Izmišljaš stvari da me napadaš.' },
+        { sender: 'a', tag: 'Žrtva (Sumnja u sebe)', text: 'Ali imam tvoju poruku na telefonu... Jesam li ja nešto pogrešno shvatio/la?' },
+        { sender: 'b', tag: 'Manipulator (Uloga žrtve)', text: 'Vidiš kako me kontolišeš? Zbog tvog pritiska i stresa koji mi praviš i jesam zakasnio/la! Ti si kriv/a.' }
+      ],
+      lovebombing: [
+        { sender: 'b', tag: 'Manipulator (Love Bombing)', text: 'Nikada u životu nisam sreo/la nekog poput tebe! Ti si moja srodna duša, promijenio/la si mi život!' },
+        { sender: 'a', tag: 'Žrtva', text: 'Hvala ti, ali znamo se tek tri dana... Zar to nije malo prebrzo?' },
+        { sender: 'b', tag: 'Manipulator (Distanciranje)', text: '...' },
+        { sender: 'b', tag: 'Manipulator (Silent Treatment)', text: '(Ne odgovara 48 sati na poruke kako bi izazvao/la paniku i zavisnost u tebi).' }
+      ],
+      triangulation: [
+        { sender: 'b', tag: 'Manipulator (Roditelj)', text: 'Tvoj brat/sestra nikada ne bi tako postupio/la prema meni! On/ona me poštuje, za razliku od tebe.' },
+        { sender: 'a', tag: 'Žrtva (Dijete)', text: 'Samo sam rekao/la svoje mišljenje o toj odluci...' },
+        { sender: 'b', tag: 'Manipulator (Triangulacija)', text: 'I ostalima u porodici sam rekao/la šta radiš. Svi se slažu da s tobom nešto nije u redu.' }
+      ]
+    },
+    de: {
+      gaslighting: [
+        { sender: 'a', tag: 'Opfer', text: 'Ich bin traurig, weil du unsere Vereinbarung wieder gebrochen hast und eine Stunde zu spät bist.' },
+        { sender: 'b', tag: 'Manipulator (Gaslighting)', text: 'Du machst immer ein Drama aus nichts! Wir hatten keine Vereinbarung. Du erfindest Dinge, um mich anzugreifen.' },
+        { sender: 'a', tag: 'Opfer (Zweifel)', text: 'Aber ich habe deine Nachricht auf meinem Handy... Habe ich etwas falsch verstanden?' },
+        { sender: 'b', tag: 'Manipulator (Opferrolle)', text: 'Siehst du, wie du mich kontrollierst? Wegen deines Drucks bin ich zu spät gekommen! Du bist schuld.' }
+      ],
+      lovebombing: [
+        { sender: 'b', tag: 'Manipulator (Love Bombing)', text: 'Ich habe noch nie jemanden wie dich getroffen! Du bist mein Seelenverwandter, du hast mein Leben verändert!' },
+        { sender: 'a', tag: 'Opfer', text: 'Danke, aber wir kennen uns erst seit drei Tagen... Ist das nicht etwas zu schnell?' },
+        { sender: 'b', tag: 'Manipulator (Distanzierung)', text: '...' },
+        { sender: 'b', tag: 'Manipulator (Silent Treatment)', text: '(Antwortet 48 Stunden lang nicht auf Nachrichten, um Panik und Abhängigkeit zu erzeugen).' }
+      ],
+      triangulation: [
+        { sender: 'b', tag: 'Manipulator (Elternteil)', text: 'Dein Bruder/Deine Schwester würde mir gegenüber nie so handeln! Er/Sie respektiert mich, im Gegensatz zu dir.' },
+        { sender: 'a', tag: 'Opfer (Kind)', text: 'Ich habe nur meine Meinung zu dieser Entscheidung gesagt...' },
+        { sender: 'b', tag: 'Manipulator (Triangulation)', text: 'Ich habe auch dem Rest der Familie erzählt, was du tust. Alle stimmen zu, dass mit dir etwas nicht stimmt.' }
+      ]
+    },
+    en: {
+      gaslighting: [
+        { sender: 'a', tag: 'Victim', text: 'I am sad because you broke our agreement again and arrived an hour late.' },
+        { sender: 'b', tag: 'Manipulator (Gaslighting)', text: 'You always make a drama out of nothing! We had no agreement. You make things up to attack me.' },
+        { sender: 'a', tag: 'Victim (Self-doubt)', text: 'But I have your message on my phone... Did I misunderstand something?' },
+        { sender: 'b', tag: 'Manipulator (Playing Victim)', text: 'See how you control me? Because of your pressure and stress, I was late! It is your fault.' }
+      ],
+      lovebombing: [
+        { sender: 'b', tag: 'Manipulator (Love Bombing)', text: 'I have never met anyone like you in my life! You are my soulmate, you changed my life!' },
+        { sender: 'a', tag: 'Victim', text: 'Thank you, but we have only known each other for three days... Isn\'t that a bit too fast?' },
+        { sender: 'b', tag: 'Manipulator (Distancing)', text: '...' },
+        { sender: 'b', tag: 'Manipulator (Silent Treatment)', text: '(Does not reply to messages for 48 hours to create panic and dependency in you).' }
+      ],
+      triangulation: [
+        { sender: 'b', tag: 'Manipulator (Parent)', text: 'Your brother/sister would never act like this towards me! They respect me, unlike you.' },
+        { sender: 'a', tag: 'Victim (Child)', text: 'I just expressed my opinion about that decision...' },
+        { sender: 'b', tag: 'Manipulator (Triangulation)', text: 'I also told the rest of the family what you are doing. Everyone agrees something is wrong with you.' }
+      ]
+    }
+  };
+
+  let currentLang = 'bs';
+  let currentScen = 'gaslighting';
+
+  /* PROMJENA JEZIKA NA STRANICI I U CHATU */
   const langPicker = document.getElementById('lang-picker');
   langPicker.addEventListener('change', function(e) {
-    const lang = e.target.value;
-    const dict = i18n[lang];
+    currentLang = e.target.value;
+    const dict = i18n[currentLang];
     if (!dict) return;
+    
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       if (dict[key]) el.innerHTML = dict[key];
     });
+
+    renderChat([]);
   });
 
-  /* SCENARIJI MANIPULACIJE DATA */
-  const scenarios = {
-    gaslighting: [
-      { sender: 'a', tag: 'Žrtva', text: 'Tužan/na sam jer si ponovo prekršio/la naš dogovor i zakasnio/la sat vremena.' },
-      { sender: 'b', tag: 'Manipulator (Gaslighting)', text: 'Ti uvijek praviš dramu ni oko čega! Nikakav dogovor nismo imali. Izmišljaš stvari da me napadaš.' },
-      { sender: 'a', tag: 'Žrtva (Sumnja u sebe)', text: 'Ali imam tvoju poruku na telefonu... Jesam li ja nešto pogrešno shvatio/la?' },
-      { sender: 'b', tag: 'Manipulator (Uloga žrtve)', text: 'Vidiš kako me kontolišeš? Zbog tvog pritiska i stresa koji mi praviš i jesam zakasnio/la! Ti si kriv/a.' }
-    ],
-    lovebombing: [
-      { sender: 'b', tag: 'Manipulator (Love Bombing)', text: 'Nikada u životu nisam sreo/la nekog poput tebe! Ti si moja srodna duša, promijenio/la si mi život!' },
-      { sender: 'a', tag: 'Žrtva', text: 'Hvala ti, ali znamo se tek tri dana... Zar to nije malo prebrzo?' },
-      { sender: 'b', tag: 'Manipulator (Distanciranje)', text: '...' },
-      { sender: 'b', tag: 'Manipulator (Silent Treatment)', text: '(Ne odgovara 48 sati na poruke kako bi izazvao/la paniku i zavisnost u tebi).' }
-    ],
-    triangulation: [
-      { sender: 'b', tag: 'Manipulator (Roditelj)', text: 'Tvoj brat/sestra nikada ne bi tako postupio/la prema meni! On/ona me poštuje, za razliku od tebe.' },
-      { sender: 'a', tag: 'Žrtva (Dijete)', text: 'Samo sam rekao/la svoje mišljenje o toj odluci...' },
-      { sender: 'b', tag: 'Manipulator (Triangulacija)', text: 'I ostalima u porodici sam rekao/la šta radiš. Svi se slažu da s tobom nešto nije u redu.' }
-    ]
-  };
-
-  let currentScen = 'gaslighting';
-  
   /* TAB TABS PREBAČAJ ZA SCENARIJE */
   document.querySelectorAll('.sim-tab').forEach(tab => {
     tab.addEventListener('click', function() {
@@ -682,7 +727,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const runSimBtn = document.getElementById('run-sim-btn');
   runSimBtn.addEventListener('click', function() {
     runSimBtn.disabled = true;
-    const data = scenarios[currentScen];
+    const data = scenariosMultilingual[currentLang][currentScen];
     renderChat([]);
     
     data.forEach((msg, idx) => {
